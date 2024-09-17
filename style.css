@@ -1,0 +1,57 @@
+body {
+    font-family: Georgia, serif;
+}
+h1 {
+    color: darkblue;
+    font-family: Georgia, serif;
+    text-align: center;
+    font-size: 36px;
+}
+p{
+    color: black;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+h2 {
+    color: black;
+    font-family: Georgia, serif;
+    text-align: center;
+    font-size: 24px;
+}
+button {
+    background-color: white;
+    border-color: black;
+    border-width: 2px;
+    border-radius: 10px;
+    padding: 20px 15px;
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 24px;
+    margin: 8px 1%;
+    width: 20%;
+    font-size: 16px;
+}
+.inline_buttons{
+    text-align: center;
+}
+.score_text {
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    background-color: darkblue;
+    padding: 20px 0px;
+}
+.question {
+    margin: auto 20%;
+}
+.restart{
+    text-align: center; 
+}
+.restart_button {
+    background-color: darkblue;
+    color: white;
+}
