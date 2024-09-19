@@ -56,3 +56,17 @@ button {
     background-color: darkblue;
     color: white;
 }
+/*
+img {
+    position: absolute; /* Position it over the button */
+    top: 0; /* Adjust as needed */
+    left: 0; /* Adjust as needed */
+    transform: translate(-50%, -50%); /* Center the image */
+    z-index: 1;
+}
+*/
+
+.response {
+    width= 20px;
+    height= 20px;
+}

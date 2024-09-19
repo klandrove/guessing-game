@@ -17,37 +17,27 @@ function check(event) {
     let name = button.className;
 
     if(name.includes("restart")){
-        // Find all button elements inside current question
-        let questionButtons = document.querySelectorAll("button");
 
-        // Enable all buttons
-        for (let button of questionButtons) {
-            // Enable each button
-            if(!button.className.includes("restart")){
-                button.disabled = false;
-                button.style.background = "white";
-                button.style.borderColor = 'black';
-                button.style.borderWidth = '2px';
-                button.style.padding = "20px";
-                button.style.color = "black";
-            }
-        }
+        restart(event);
 
-        // Reset score
-        score = 0;
-        
-        // Display score on page
-        scoreElement.textContent = score;
-        return;
     } else {
     
         // Find current question
         let question = button.parentElement;
 
         if (name.includes("correct")) {
-            // If answer is correct
-            button.style.background = "green";
+            /* rect = button.getBoundingClientRect();
 
+            console.log('Position:', {
+                top: rect.top,
+                right: rect.right,
+                bottom: rect.bottom,
+                left: rect.left,
+                width: rect.width,
+                height: rect.height
+            }) */
+            // If answer is correct
+            button.insertAdjacentHTML('beforebegin', "<img src='check.png' alt='checkmark' width='20' height='20' class='response'>");
             // Update score
             score++;
             
@@ -55,7 +45,7 @@ function check(event) {
             scoreElement.textContent = score;
         } else {
             // If answer is wrong
-            button.style.background = "red";
+            button.insertAdjacentHTML('beforebegin', "<img src='wrong.png' alt='x mark' width='20' height='20'>");
         }
 
         // Find all button elements inside current question
@@ -109,6 +99,50 @@ function unhover(event){
     } else if (button.className.includes("restart")){
         button.style.background = 'darkblue';
     }
+}
+
+function restart(event){
+    // Find clicked button
+    let button = event.target;
+
+    //Get class name of button
+    let name = button.className;
+
+    if(name.includes("restart")){
+        // Find all button elements inside current question
+        let questionButtons = document.querySelectorAll("button");
+        let responses = document.querySelectorAll("response");
+
+        // Loop through all buttons
+        for (let button of questionButtons) {
+            if(!button.className.includes("restart")){
+                // Enable each button
+                button.disabled = false;
+                // Reset button styles
+                button.style.background = "white";
+                button.style.borderColor = 'black';
+                button.style.borderWidth = '2px';
+                button.style.padding = "20px";
+                button.style.color = "black";
+            }
+        }
+        console.log(responses);
+
+        // Loop through all responses
+        for (let response of responses) {
+            // Remove each response
+            console.log("Response 1:" + response);
+            response.remove();  
+        }
+
+        // Reset score
+        score = 0;
+        
+        // Display score on page
+        scoreElement.textContent = score;
+        return;
+    }
+    
 }
 
 // For each button on my list
