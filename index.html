@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,54 +9,72 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
+
 <body>
     <h1>Branding Colors Quiz</h1>
 
-    <p class="score_text">Score: <span class="score">0</span></p>
 
-    <div class="question">
-        <h2>What color is typically associated with youthfulness, energy, and optimism?</h2>
-        <div class="inline_buttons">
-            <button>Red</button>
-            <button>Green</button>
-            <button class="correct">Yellow</button>
-            <button>Blue</button>
+    <div class="slideshow-container">
+        <p class="score_text">Score: <span class="score">0</span></p>
+        <div class="question fade">
+            <h2>What color is typically associated with youthfulness, energy, and optimism?</h2>
+            <div class="inline_buttons">
+                <button>Red</button>
+                <button>Green</button>
+                <button class="correct">Yellow</button>
+                <button>Blue</button>
+            </div>
+            <p class="feedback"><span class="is_correct"> </span>Yellow typically evokes optimistic emotions!</p>
         </div>
-    </div>
-    <div class="question">
-        <h2>What emotions are typically associated with <span style="color:darkblue;">dark blue</span>?</h2>
-        <div class="inline_buttons">
-            <button class="correct dark_blue">Professionalism and security</button>
-            <button class="dark_blue">Royalty and mystery</button>
-            <button class="dark_blue">Stability and dependability</button>
-            <button class="dark_blue">Cleanliness and simplicity</button>
+        <div class="question fade">
+            <h2>What emotions are typically associated with <span style="color:darkblue;">dark blue</span>?</h2>
+            <div class="inline_buttons">
+                <button class="correct dark_blue">Formality and security</button>
+                <button class="dark_blue">Royalty and mystery</button>
+                <button class="dark_blue">Stability and dependability</button>
+                <button class="dark_blue">Cleanliness and simplicity</button>
+            </div>
+            <p class="feedback"><span class="is_correct"> </span>Dark blue is typically used in professional settings!
+            </p>
         </div>
-    </div>
-    <div class="question">
-        <h2>What color is typically associated with stability, health, and growth?</h2>
-        <div class="inline_buttons">
-            <button>Orange</button>
-            <button class="correct">Green</button>
-            <button>Red</button>
-            <button>Pink</button>
+        <div class="question fade">
+            <h2>What color is typically associated with stability, health, and growth?</h2>
+            <div class="inline_buttons">
+                <button>Orange</button>
+                <button class="correct">Green</button>
+                <button>Red</button>
+                <button>Pink</button>
+            </div>
+            <p class="feedback"><span class="is_correct"> </span>Green is used in connection with nature and prosperity!</p>
         </div>
-    </div>
-    <div class="question">
-        <h2>What emotions are typically associated with <span style="color:red;">red</span>?</h2>
-        <div class="inline_buttons">
-            <button class="red">Happiness and optimism</button>
-            <button class="red">Wealth and growth</button>
-            <button class="red">Mystery and creativity</button>
-            <button class="correct red">Passion and danger</button>
+        <div class="question fade">
+            <h2>What emotions are typically associated with <span style="color:red;">red</span>?</h2>
+            <div class="inline_buttons">
+                <button class="red">Happiness and optimism</button>
+                <button class="red">Wealth and growth</button>
+                <button class="red">Mystery and creativity</button>
+                <button class="correct red">Passion and danger</button>
+            </div>
+            <p class="feedback"><span class="is_correct"> </span>Red commands attention and passion!</p>
         </div>
-    </div>
-    <div class="question">
-        <h2>What color is typically associated with sensitivity, romance, and innocence?</h2>
-        <div class="inline_buttons">
-            <button class="correct">Pink</button>
-            <button>Black</button>
-            <button>Red</button>
-            <button>Grey</button>
+        <div class="question fade">
+            <h2>What color is typically associated with sensitivity, romance, and innocence?</h2>
+            <div class="inline_buttons">
+                <button class="correct">Pink</button>
+                <button>Black</button>
+                <button>Red</button>
+                <button>Grey</button>
+            </div>
+            <p class="feedback"><span class="is_correct"> </span>Pink is associated with femininity and youth!</p>
+        </div>
+        <a class="prev" id="previous" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" id="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="dot_container">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
         </div>
     </div>
     <br>
@@ -63,4 +82,5 @@
         <button class="restart_button">Restart Quiz</button>
     </div>
 </body>
+
 </html>

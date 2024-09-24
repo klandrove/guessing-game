@@ -18,36 +18,40 @@ h2 {
     font-family: Georgia, serif;
     text-align: center;
     font-size: 24px;
+    height: 8vh;
 }
 button {
     background-color: white;
     border-color: black;
     border-width: 2px;
     border-radius: 10px;
-    padding: 20px 15px;
+    padding: 10px 10px;
     font-family: Verdana, sans-serif;
     text-align: center;
-    font-size: 24px;
-    margin: 8px 1%;
-    width: 20%;
+    font-size: 20px;
+    margin: 10px 1%;
+    width: 25%;
     font-size: 16px;
+    height: 16vh;
 }
 .inline_buttons{
     display: flex;
     justify-content: center;
+    align-content: center;
 }
 .score_text {
     color: white;
     font-size: 24px;
     width: 100%;
     text-align: center;
-    position: sticky;
     top: 0;
     background-color: darkblue;
     padding: 20px 0px;
+    margin: 0px
 }
 .question {
-    margin: auto 20%;
+    margin: auto 10%;
+    display: none;
 }
 .restart{
     text-align: center; 
@@ -55,18 +59,82 @@ button {
 .restart_button {
     background-color: darkblue;
     color: white;
+    height: 10vh;
 }
-/*
-img {
-    position: absolute; /* Position it over the button */
-    top: 0; /* Adjust as needed */
-    left: 0; /* Adjust as needed */
-    transform: translate(-50%, -50%); /* Center the image */
-    z-index: 1;
+.slideshow-container {
+    width: 50%;
+    height: 60vh;
+    position: relative;
+    margin: auto;
+    border: 3px solid darkblue;
+    border-radius: 10px;
+  }
+  /* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: darkblue;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  /* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 0.3s;
+  }
+  
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
 }
-*/
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    
+  }
 
-.response {
-    width= 20px;
-    height= 20px;
+.dot_container{
+    text-align:center; 
+    margin: 3vh;
+    display: flex; 
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
 }
+  
+.active, .dot:hover {
+    background-color: #717171;
+  }
+.feedback{
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size: 16px;
+    display: none;
+}  
+
+
