@@ -136,5 +136,10 @@ button {
     font-size: 16px;
     display: none;
 }  
-
+.resource{
+    font-family: Verdana, sans-serif;
+    text-align: center;
+    font-size:20px;
+    height: 6vh;
+}
 

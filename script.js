@@ -13,6 +13,7 @@ let feedback = document.getElementsByClassName('feedback');
 // Keep track of score
 let score = 0;
 
+// Set slide index variable and show first slide
 let slideIndex = 1;
 showSlides(slideIndex);
 
@@ -25,9 +26,10 @@ function check(event) {
     // Get class name of button
     let name = button.className;
 
-
+    // check if restart button
     if(name.includes("restart")){
 
+        // call restart function
         restart(event);
 
     } else {
@@ -35,15 +37,20 @@ function check(event) {
         let question = button.parentElement;
         // Select first HTML element with class of score
        
+        // Find feedback text
         let feedback_text = feedback[slideIndex-1].querySelector('.is_correct');
 
+        // Check if button is correct
         if (name.includes("correct")) {
             
+            // change color of dot to green
             dots[slideIndex-1].style.backgroundColor = "green";
 
+            // update and display feedback text
             feedback_text.textContent = "Correct! ";
             feedback[slideIndex-1].style.display = "block";
 
+            // Change button border color and button size
             button.style.borderColor = "green";
             button.style.scale = "1.1";
             button.style.borderWidth = '4px';
@@ -55,10 +62,15 @@ function check(event) {
             scoreElement.textContent = score;
         } else {
             // If answer is wrong
+
+            //change color of dot to red
             dots[slideIndex-1].style.backgroundColor = "red";
+
+            // update and display feedback text
             feedback_text.textContent = "Incorrect! ";
             feedback[slideIndex-1].style.display = "block";
 
+            // Change button border color and button size
             button.style.borderColor = "red";
             button.style.scale = "1.1";
             button.style.borderWidth = '4px';
@@ -82,7 +94,7 @@ function hover(event) {
     // Find hovered button
     let button = event.target;
 
-    // Check if button is enabled
+    // Check if button is enabled and not restart button
     if (!button.disabled && !button.className.includes("restart")){
         //Checks if question is dark blue or red
         if (button.className.includes("dark_blue")){
@@ -97,25 +109,31 @@ function hover(event) {
         button.style.borderStyle = 'solid';
         button.style.borderColor = buttonColor;
         button.style.borderWidth = '4px';
-        //button.style.padding = "10px";
     } else if (button.className.includes("restart")){
+        // style restart button
         button.style.background = 'black';
     }
 }
 
 function unhover(event){
+    // find unhovered button
     let button = event.target;
+
+    // check if button enabled and not restart button
     if (!button.disabled && !button.className.includes("restart")){
         // Change the button's border color
         button.style.borderColor = 'black';
         button.style.borderWidth = '2px';
         button.style.padding = "10px";
     } else if (button.className.includes("restart")){
+        // style restart button
         button.style.background = 'darkblue';
     }
 }
 
+// restarts quiz
 function restart(event){
+    // reset slide index and show first slide
     slideIndex = 1;
     showSlides(slideIndex);
 
@@ -125,13 +143,15 @@ function restart(event){
     //Get class name of button
     let name = button.className;
 
+    // Check if button is restart button
     if(name.includes("restart")){
-        // Find all button elements inside current question
+
+        // Find all button elements
         let questionButtons = document.querySelectorAll("button");
-        let responses = document.querySelectorAll(".response");
 
         // Loop through all buttons
         for (let button of questionButtons) {
+            // Check if button is not restart button
             if(!button.className.includes("restart")){
                 // Enable each button
                 button.disabled = false;
@@ -145,17 +165,15 @@ function restart(event){
             }
         }
 
-        for (let response of responses){
-            response.remove();
-        }
-
         // Loop through all dots
         for (let dot of dots){
+            // reset dot style
             dot.style.backgroundColor = "";
-            console.log(dot.style.backgroundColor);
          }
 
+         // loop through all feedback
         for (fb of feedback){
+            // hide feedback
             fb.style.display = "none";
         }
         // Reset score
@@ -172,7 +190,9 @@ function restart(event){
 for (let button of buttons) {
     // Run check function when it's clicked
     button.onclick = check;
+    // Run hover function when it's hovered
     button.addEventListener('mouseover', hover);
+    // Run unhover function when it's not hovered
     button.addEventListener('mouseout', unhover);
 }
 
@@ -189,32 +209,49 @@ function currentSlide(n) {
 }
 
 function showSlides(n) {
+    // used in for loop
     let i;
+    // get all questions
     let slides = document.getElementsByClassName("question");
+
+    // get back arrow
     let prevButton = document.getElementById('previous');
+
+    //get next arrow
     let nextButton = document.getElementById('next');
+
+    // hide all slides
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";
     }
+
+    // checks if slide is last and hides next arrow
     if (n == slides.length){
         nextButton.disabled = true;
         nextButton.hidden = true;
         prevButton.disabled = false;
         prevButton.hidden = false;
     } else if (n == 1){
+        // checks if slide is first and hides back arrow
         prevButton.disabled = true;
         prevButton.hidden = true;
         nextButton.disabled = false;
         nextButton.hidden = false;
     } else {
+        // enables both arrows
         prevButton.disabled = false;
         nextButton.disabled = false;
         prevButton.hidden = false;
         nextButton.hidden = false;
     }
+    // makes all dots inactive
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-    dots[slideIndex-1].className += " active";
+    // makes slide active
     slides[slideIndex-1].style.display = "block";
+
+    // makes corresponding dot active
+    dots[slideIndex-1].className += " active";
+    
 }
